@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoloCode Hub</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: linear-gradient(45deg, #ffff, #ff7, orange);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            overflow: hidden;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .center-content {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+            display: none;
+        }
+        .circular-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid orange;
+            margin-bottom: 20px;
+            animation: scaleUp 1s infinite alternate;
+        }
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .center-content h1 {
+        color:orange;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px orange;
+        }
+        .center-content a {
+            color: #fff;
+            background-color: orange;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+        .center-content a:hover {
+            background-color: #ff0080;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .subscribe-text {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: black;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .sad-face {
+            animation: shake 1s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: rotate(0); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(-5deg); }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            text-align: center;
+            border-radius: 10px;
+            color: #000;
+        }
+        .close-button {
+            background-color: #ff0080;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #ff0080;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .response-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        .loading-text {
+            font-size: 2em;
+            color: #ff0080;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <div class="center-content">
+       <img src="https://i.ibb.co/QcwBWzh/IMG-20241009-WA0000.jpg" border="0" alt="Profile" class="circular-image">
+        <h1>Welcome to Coder Station</h1>
+        <a href="https://www.youtube.com/@CoderStation1k">Visit My Channel</a>
+        <p class="subscribe-text">Your 1 view, subscribe means a lot <span class="sad-face">☹️</span></p>
+    </div>
+
+    <div id="subscribeModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <p>Will you subscribe?</p>
+            <button class="close-button" id="yesButton">Yes</button>
+            <button class="close-button" id="noButton">No</button>
+            <p class="response-message" id="responseMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('loadingScreen').style.display = 'none';
+            document.querySelector('.center-content').style.display = 'block';
+            document.getElementById('subscribeModal').style.display = 'flex';
+        }
+        document.getElementById('yesButton').onclick = function() {
+            document.getElementById('responseMessage').innerText = "Thank you 🙏❣️";
+            document.getElementById('responseMessage').style.display = 'block';
+        };
+        document.getElementById('noButton').onclick = function() {
+            document.getElementById('responseMessage').innerText = "Ok as you wish, but check out the video ☹️🥺";
+            document.getElementById('responseMessage').style.display = 'block';
+        };
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('subscribeModal').style.display = 'none';
+        };
+    </script>
+
+</body>
+                                                             </html>
+                                                             
